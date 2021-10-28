@@ -1,5 +1,6 @@
 // Game States
 // "LOSE" - Player robot's health is zero or less
+// if the enemy-robot's health is zero or less, exit from the fight loop.
 
 var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
@@ -73,10 +74,25 @@ var fight = function(enemyName) {
 
         // if yes (true), leave fight
         if (confirmSkip) {
-            window.alert(playerName + " has decided to skipt this fight. Goodbye!");
+            window.alert(playerName + " has decided to skip this fight. Goodbye!");
             // subtract money from playerMoney for skipping
-            playerMoney = playerMoney - 2;
+            playerMoney = playerMoney - 10;
+            console.log("playerMoney", playerMoney);
         }
+        // if player picks "skip" confirm and then stop the loop
+        if (promptFight === "skip" || promptFight === "SKIP") {
+        // confirm player wants to skip
+        var confirmSkip = window.confirm("Are you sure you'd like to quit?");
+  
+        // if yes (true), leave fight
+        if (confirmSkip) {
+            window.alert(playerName + " has decided to skip this fight. Goodbye!");
+        // subtract money from playerMoney for skipping
+            playerMoney = playerMoney - 10;
+            console.log("playerMoney", playerMoney)
+            break;
+        }
+  }
 
         // if no (false), ask question again by running fight() again 
         else {
