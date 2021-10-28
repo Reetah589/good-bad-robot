@@ -1,3 +1,6 @@
+// Game States
+// "LOSE" - Player robot's health is zero or less
+
 var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
 var playerAttack = 10;
@@ -11,17 +14,24 @@ var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-for (var i = 0; i < enemyNames.length; i++) {
-    debugger;
-    // call fight function with enemy-robot
-    fight(enemyNames[i]);
+for(var i = 0; i < enemyNames.length; i++) {
+    var pickedEnemyName = enemyNames[i];
+    enemyHealth = 50;
+    fight(pickedEnemyName);
 }
+
+//for (var i = 0; i < enemyNames.length; i++) {
+    //debugger;
+    // call fight function with enemy-robot
+    //fight(enemyNames[i]);
+//}
 
 // create function
 var fight = function(enemyName) {
     // repeat and execute as long as the enemy-robot is alive 
     while(enemyHealth > 0) {
     // place fight function code block here . . .
+    //while (playerHealth > 0 && enemyHealth > 0) 
     }
     //window.alert("Welcome to Robot Gladiators!"); 
 
@@ -50,6 +60,7 @@ var fight = function(enemyName) {
         // check player's health
         if (playerHealth <= 0) {
             window.alert(playerName + " has died!");
+            break;
         }     
         else {
             window.alert(playerName + " still has " + playerHealth + " health left.");
@@ -109,9 +120,11 @@ var fight = function(enemyName) {
     }
 };
 
-for(var i = 0; i < enemyNames.length; i++) {
-    fight(enemyNames[i]);
-  }
+//for(var i = 0; i < enemyNames.length; i++) {
+    //var pickedEnemyName = enemyNames[i];
+    //enemyHealth = 50;
+    //fight(pickedenemyName);
+//}
 
 // execute function
 //fight();
