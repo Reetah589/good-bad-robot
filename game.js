@@ -7,6 +7,7 @@ var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
+var pickedEnemyName = enemyNames[i];
 var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
@@ -19,6 +20,11 @@ console.log(enemyNames[3]);
 // function to start a new game
 var startGame = function() {
   debugger
+  // reset player stats
+  playerHealth = 100;
+  playerAttack = 10;
+  playerMoney = 10;
+
   for (var i = 0; i < enemyNames.length; i++) {
     if (playerHealth > 0) {
       window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
@@ -35,6 +41,17 @@ var startGame = function() {
     }
   }
 };
+
+// function to end the entire game
+var endGame = function() {
+  // if player is still alive, player wins!
+  if (playerHealth > 0) {
+    window.alert("Great job, you've survived the game! You now have a score of " + playerMoney + ".");
+  } 
+  else {
+    window.alert("You've lost your robot in battle.");
+  }
+}
 
 // fight function (now with parameter for enemy's name)
 var fight = function(enemyName) {
